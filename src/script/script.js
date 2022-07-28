@@ -1,3 +1,5 @@
+let pageAni = false;
+
 const mainPageAni = e => {
   const frame = new Date().getTime() - frameTime;
   frameTime = frameTime + frame;
@@ -27,6 +29,8 @@ const mainPageAni = e => {
     if(!imageLoaded && mainPage.idx == 1) {
       imageView(true);
     }
+
+    pageAni = false;
   }
 }
 
@@ -44,13 +48,14 @@ const init = e => {
 }
 
 document.addEventListener("wheel", e => {
-  if(mainPage.canAni && !e.shiftKey && !imagePopAni) {
+  if(mainPage.canAni && !e.shiftKey && !imagePopAni && !pageAni) {
     if(e.wheelDelta < 0) {
       if(mainPage.idx < mainPage.maxPage - 1) mainPage.idx++;
     }else {
       if(mainPage.idx > 0) mainPage.idx--;
     }
 
+    pageAni = true;
     scrolls.speed = 0;
     frameTime = new Date().getTime();
     mainPageAni();
