@@ -43,22 +43,24 @@ const musicAnimation = () => {
 
   const album = page.w / 3 / 4 * 2;
 
-  let max = ((page.w - page.w / 5) / 3 * (musicList.length - 3));
-
-  musicCanvas.x += musicCanvas.speed * frame;
-
-  if(musicCanvas.speed >= 0.01 * frame) {
-    musicCanvas.speed -= 0.01 * frame;
-  }else if(musicCanvas.speed <= -0.01 * frame) {
-    musicCanvas.speed += 0.01 * frame;
-  }else {
-    musicCanvas.speed = 0;
+  if(!mouse.md) {
+    let max = ((page.w - page.w / 5) / 3 * (musicList.length - 3));
+  
+    musicCanvas.x += musicCanvas.speed * frame;
+  
+    if(musicCanvas.speed >= 0.01 * frame) {
+      musicCanvas.speed -= 0.01 * frame;
+    }else if(musicCanvas.speed <= -0.01 * frame) {
+      musicCanvas.speed += 0.01 * frame;
+    }else {
+      musicCanvas.speed = 0;
+    }
+  
+    musicCanvas.speed = musicCanvas.speed.toFixed(2) * 1;
+  
+    if(musicCanvas.x < 0) musicCanvas.x = 0;
+    if(musicCanvas.x > max) musicCanvas.x = max;
   }
-
-  musicCanvas.speed = musicCanvas.speed.toFixed(2) * 1;
-
-  if(musicCanvas.x < 0) musicCanvas.x = 0;
-  if(musicCanvas.x > max) musicCanvas.x = max;
 
   const selMusic = musicList[lastPlay];
   const removeList = [];
