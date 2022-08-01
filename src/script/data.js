@@ -6,6 +6,7 @@ const page = {w: window.innerWidth, h: window.innerHeight, x: window.innerWidth 
 const mouse = {x: 0, y: 0, dx: 0, dy: 0, md: false};
 const mainPage = {idx: 0, canAni: false, maxPage: 3, step: 0};
 const particleList = {};
+let showScrollPointer = localStorage.getItem("showScrollPointer") == null ? true : JSON.parse(localStorage.getItem("showScrollPointer"));
 
 const cloneArray = data => {
   const result = [];

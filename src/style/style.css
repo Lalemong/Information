@@ -1,6 +1,6 @@
 #wrap{position: absolute; left: 0; top: 0; bottom: 0; right: 0; width: 100%; height: 100%; overflow: hidden;}
 
-.page{position: absolute; left: 0; width: 100%; height: 100%;}
+.page{position: absolute; left: 0; width: 100%; height: 100%; overflow: none;}
 
 #page1{top: 0;}
 #page2{top: 100%; background: #39383d; user-select: none;}
@@ -32,3 +32,21 @@ video::-webkit-media-controls-current-time-display{display: none !important;}
 video::-webkit-media-controls-time-remaining-display{display: none !important;}
 video::-webkit-media-controls-mute-button{display: none !important;}
 video::-webkit-media-controls-volume-slider{display: none !important;}
+
+#page1-video{width: 100%; height: 100%; position: absolute; object-fit: cover;}
+
+#scroll-pointer{position: absolute; left: 50%; bottom: 30px; font-family: 'MYYeongnamnu'; font-size: 80px; transform: translateX(-50%); -webkit-text-stroke: 2px #bbb; color: #fff; animation: 2s; transform-origin: 50% 60%; animation-fill-mode: forwards;}
+
+@keyframes intro {
+  0%{transform: translateX(-50%) rotate(0deg);}
+  10%{transform: translateX(-50%) rotate(15deg);}
+  20%{transform: translateX(-50%) rotate(-15deg);}
+  30%{transform: translateX(-50%) rotate(15deg);}
+  40%{transform: translateX(-50%) rotate(-15deg);}
+  50%{transform: translateX(-50%) rotate(15deg);}
+  60%{transform: translateX(-50%) rotate(-15deg);}
+  70%{transform: translateX(-50%) rotate(15deg);}
+  80%{transform: translateX(-50%) rotate(0deg);}
+  90%{transform: translateX(-50%) rotate(0deg);}
+  100%{transform: translateX(-50%) rotate(0deg) translateY(200%);}
+}

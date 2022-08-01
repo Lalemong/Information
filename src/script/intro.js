@@ -1,6 +1,7 @@
 const $introBackground = document.querySelector("#intro-background");
 const $intro = document.querySelector("#intro");
 const introCt = $intro.getContext("2d");
+const $scrollPointer = document.querySelector("#scroll-pointer");
 let introStep = 0;
 let introFrame = 0;
 
@@ -67,6 +68,10 @@ const introAnimation = e => {
         $intro.classList.add("none");
         introStep = false;
         mainPage.canAni = true;
+        $scrollPointer.style.animationName = "intro";
+        setTimeout(e => {
+          $scrollPointer.style.display = "none";
+        }, 3000)
       }
 
       item.y = item.y.toFixed(2) * 1;
@@ -120,5 +125,8 @@ const intro = e => {
   const video = document.getElementById("page1-video");
   video.removeAttribute("controls");
 
+  if(!showScrollPointer) $scrollPointer.style.display = "none";
+
   introAnimation();
 } 
+
